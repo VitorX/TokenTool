@@ -21,6 +21,8 @@ namespace TokenAssistant.Data
 
         public int Id { get;set; }
 
+        public int AzureAppId { get; set; }
+
         [ForeignKey("AzureAppId")]
         public AzureApp App
         {
