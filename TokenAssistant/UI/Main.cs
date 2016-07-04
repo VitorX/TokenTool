@@ -11,18 +11,18 @@ using OAuth2;
 using Newtonsoft.Json.Linq;
 using TokenAssistant.BusniessLayer;
 using TokenAssistant.Data;
+using TokenAssistant.DataService;
 
 namespace TokenAssistant
 {
     public partial class Main : Form
     {
-        IAzureAppDbContext appsService;
+        AzureAppServiceClient dataService=new AzureAppServiceClient();
 
         public Main()
         {
             InitializeComponent();
 
-            appsService = getDbContext();
             BindListApps();
 
             lstResrouce.DataSource = Resources.Resrouces;
@@ -31,15 +31,15 @@ namespace TokenAssistant
             RefreshTokenControlUI();
         }
 
-        private static IAzureAppDbContext getDbContext()
+        private static AzureAppServiceClient getDbContext()
         {
-            return AzureAppDbFactory.GetDbContext();
+            return new AzureAppServiceClient();
         }
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
             string clientId = ((AzureApp)listApps.SelectedItem).ClientId;
-            appsService.DeleteApp(clientId);
+            dataService.DeleteApp(clientId);
             RefreshListApps();
             MessageBox.Show("Delete app sucessfully!");
         }
@@ -51,13 +51,13 @@ namespace TokenAssistant
 
         private void RefreshListApps()
         {
-            appsService =getDbContext();
+            dataService =getDbContext();
             BindListApps();
         }
 
         private void BindListApps()
         {
-            listApps.DataSource = appsService.GetAllApps();
+            listApps.DataSource = dataService.GetAllApps();
             listApps.DisplayMember = "AppName";
             listApps.ValueMember = "ClientId";
         }
@@ -80,13 +80,13 @@ namespace TokenAssistant
         private void btnDelegateToken_Click(object sender, EventArgs e)
         {
             string clientId = ((AzureApp)listApps.SelectedItem).ClientId;
-            AzureApp app = appsService.GetApp(clientId);
+            AzureApp app = dataService.GetApp(clientId);
             TokenRequest tokenRequest = new TokenRequest(app, lstResrouce.Text, lstUsers.Text);
             TokenRequestHelp tokenRequestHelp = new TokenRequestHelp(tokenRequest);
             tokenRequestHelp.Send("https://login.microsoftonline.com");
 
-            appsService.SaveApp(app);
-            appsService.SaveChanges();
+            dataService.SaveApp(app);
+            dataService.SaveChanges();
 
             RefreshTokenControlUI();
             MessageBox.Show(tokenRequest.AccessToken);
@@ -97,9 +97,9 @@ namespace TokenAssistant
         {
             try
             {
-                appsService =getDbContext();
+                dataService =getDbContext();
                 var appId = ((AzureApp)listApps.SelectedItem).ClientId;
-                var app = appsService.GetApp(appId);
+                var app = dataService.GetApp(appId);
 
                 var tokenRequestIndex = app.tokenRequests.FindIndex(tokekRequest => (tokekRequest.Resource == lstResrouce.Text && tokekRequest.SignInUserName == lstUsers.Text));
                 if (tokenRequestIndex != -1)
@@ -117,13 +117,12 @@ namespace TokenAssistant
             {
 
             }
-          
         }
 
         private async void btnAppToken_Click(object sender, EventArgs e)
         {
             var appId = ((AzureApp)listApps.SelectedItem).ClientId;
-            var app = appsService.GetApp(appId);
+            var app = dataService.GetApp(appId);
             var authority = "https://login.microsoftonline.com/o365e3w15.onmicrosoft.com/oauth2/token";
             var secret = "";
             if (app.Type == AzureAppType.Server)
@@ -136,7 +135,7 @@ namespace TokenAssistant
         private void btnRenewToken_Click(object sender, EventArgs e)
         {
             var appId = ((AzureApp)listApps.SelectedItem).ClientId;
-            var app = appsService.GetApp(appId);
+            var app = dataService.GetApp(appId);
 
             TokenHelper tokenHelper = new TokenHelper("https://login.microsoftonline.com/Common/oauth2/token");
             JObject response = null;
@@ -171,7 +170,7 @@ namespace TokenAssistant
                     app.tokenRequests.Add(tokenRequest);
                 }
 
-                appsService.SaveChanges();
+                dataService.SaveApp(app);
                 RefreshTokenControlUI();
             }
             else

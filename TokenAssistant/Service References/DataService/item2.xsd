@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/TokenAssistant.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TokenAssistant.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8090/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="AzureApp">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AppName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RedirectURL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" type="tns:AzureAppType" />
+      <xs:element minOccurs="0" name="tokenRequests" nillable="true" type="tns:ArrayOfTokenRequest" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="AzureApp" nillable="true" type="tns:AzureApp" />
+  <xs:simpleType name="AzureAppType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Server">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="client">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AzureAppType" nillable="true" type="tns:AzureAppType" />
+  <xs:complexType name="ArrayOfTokenRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TokenRequest" nillable="true" type="tns:TokenRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTokenRequest" nillable="true" type="tns:ArrayOfTokenRequest" />
+  <xs:complexType name="TokenRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccessToken" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="App" nillable="true" type="tns:AzureApp" />
+      <xs:element minOccurs="0" name="RefreshToken" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Resource" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SignInUserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="TokenRequest" nillable="true" type="tns:TokenRequest" />
+  <xs:complexType name="ClientAzureApp">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AzureApp">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ClientAzureApp" nillable="true" type="tns:ClientAzureApp" />
+  <xs:complexType name="ServerAzureApp">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AzureApp">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Secret" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ServerAzureApp" nillable="true" type="tns:ServerAzureApp" />
+  <xs:complexType name="ArrayOfAzureApp">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AzureApp" nillable="true" type="tns:AzureApp" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAzureApp" nillable="true" type="tns:ArrayOfAzureApp" />
+</xs:schema>

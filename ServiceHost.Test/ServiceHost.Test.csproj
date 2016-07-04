@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{309B6D34-8E80-4377-8867-7922190ABEE4}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{3F99F277-4058-4E58-9E96-332AC5AA0234}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TokenAssistant.Data</RootNamespace>
-    <AssemblyName>TokenAssistant.Data</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>ServiceHost.Test</RootNamespace>
+    <AssemblyName>ServiceHost.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -29,21 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -55,21 +45,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataLayer\AzureApp.cs" />
-    <Compile Include="DataLayer\AzureAppDbFactory.cs" />
-    <Compile Include="DataLayer\AzureAppService.cs" />
-    <Compile Include="DataLayer\IAzureAppDbContext.cs" />
-    <Compile Include="DataLayer\TokenRequest.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SQLDataLayer\AzureAppDbContext.cs" />
-    <Compile Include="SQLDataLayer\AzureAppDbHelper.cs" />
-    <Compile Include="XMLDataLayer\AzureAppXMLContext.cs" />
-    <Compile Include="XMLDataLayer\Resources.cs" />
-    <Compile Include="XMLDataLayer\User.cs" />
+    <Compile Include="Service References\AzureApp.DataService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
+    <None Include="Service References\AzureApp.DataService\AzureAppDbFactory.wsdl" />
+    <None Include="Service References\AzureApp.DataService\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AzureApp.DataService\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AzureApp.DataService\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AzureApp.DataService\ServiceHost.Test.AzureApp.DataService.AzureApp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AzureApp.DataService\ServiceHost.Test.AzureApp.DataService.TokenRequest.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AzureApp.DataService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AzureApp.DataService\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AzureApp.DataService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AzureApp.DataService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AzureApp.DataService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

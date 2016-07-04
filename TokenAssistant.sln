@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TokenAssistant", "TokenAssistant\TokenAssistant.csproj", "{A8B43622-DC08-4FD8-BCFE-81590BEBBA4E}"
 EndProject
@@ -14,6 +14,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestTokenTool", "UnitTestTokenTool\UnitTestTokenTool.csproj", "{2D7E7BE5-2B08-416F-BEFB-A75A3CD3B37F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateSQLDatabase", "CreateSQLDatabase\CreateSQLDatabase.csproj", "{0F3F5103-2DDB-4AEB-8885-5494B3766F5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceHost", "ServiceHost\ServiceHost.csproj", "{14688076-2D41-43AE-AB2A-493A2FE8BFC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceHost.Test", "ServiceHost.Test\ServiceHost.Test.csproj", "{3F99F277-4058-4E58-9E96-332AC5AA0234}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +45,14 @@ Global
 		{0F3F5103-2DDB-4AEB-8885-5494B3766F5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F3F5103-2DDB-4AEB-8885-5494B3766F5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F3F5103-2DDB-4AEB-8885-5494B3766F5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14688076-2D41-43AE-AB2A-493A2FE8BFC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14688076-2D41-43AE-AB2A-493A2FE8BFC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14688076-2D41-43AE-AB2A-493A2FE8BFC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14688076-2D41-43AE-AB2A-493A2FE8BFC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F99F277-4058-4E58-9E96-332AC5AA0234}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F99F277-4058-4E58-9E96-332AC5AA0234}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F99F277-4058-4E58-9E96-332AC5AA0234}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F99F277-4058-4E58-9E96-332AC5AA0234}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,5 +60,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{2D7E7BE5-2B08-416F-BEFB-A75A3CD3B37F} = {0430C9D6-3BEF-49ED-AA0D-7280D5E2E2EC}
 		{0F3F5103-2DDB-4AEB-8885-5494B3766F5D} = {0430C9D6-3BEF-49ED-AA0D-7280D5E2E2EC}
+		{14688076-2D41-43AE-AB2A-493A2FE8BFC3} = {0430C9D6-3BEF-49ED-AA0D-7280D5E2E2EC}
+		{3F99F277-4058-4E58-9E96-332AC5AA0234} = {0430C9D6-3BEF-49ED-AA0D-7280D5E2E2EC}
 	EndGlobalSection
 EndGlobal

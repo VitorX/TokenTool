@@ -2,14 +2,19 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace TokenAssistant.Data
 {
-    [XmlInclude(typeof(ClientAzureApp))]
-    [XmlInclude(typeof(ServerAzureApp))]
+    //[XmlInclude(typeof(ClientAzureApp))]
+    //[XmlInclude(typeof(ServerAzureApp))]
+    [DataContract(IsReference = true)]
+    [KnownType(typeof(ClientAzureApp))]
+    [KnownType(typeof(ServerAzureApp))]
     public class AzureApp
     {
         private string _clientId;
@@ -19,6 +24,7 @@ namespace TokenAssistant.Data
         [Key]
         public int Id { get; set; }
 
+        [DataMember]
         public string ClientId
         {
             get
@@ -32,8 +38,10 @@ namespace TokenAssistant.Data
             }
         }
 
+        [DataMember]
         public List<TokenRequest> tokenRequests { get; set; }
 
+        [DataMember]
         public string RedirectURL
         {
             get
@@ -47,6 +55,7 @@ namespace TokenAssistant.Data
             }
         }
 
+        [DataMember]
         public string AppName
         {
             get
@@ -60,6 +69,7 @@ namespace TokenAssistant.Data
             }
         }
 
+        [DataMember]
         public AzureAppType Type { set; get; }
 
     }

@@ -1,37 +1,39 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
 
 namespace TokenAssistant.Data
 {
+    [DataContract(IsReference = true)]
     public class TokenRequest
     {
-        private AzureApp _app;
-        public string AccessToken { get; set; }
-        public string RefreshToken { get; set; }
 
+        [DataMember]
+        public string AccessToken { get; set; }
+        [DataMember]
+        public string RefreshToken { get; set; }
+        [DataMember]
         public string Resource
         {
             get; set;
         }
-
+        [DataMember]
         public string SignInUserName
         {
             get; set;
         }
 
-        public int Id { get;set; }
+        public int Id { get; set; }
 
         public int AzureAppId { get; set; }
 
+        [DataMember]
         [ForeignKey("AzureAppId")]
-        public AzureApp App
-        {
-            get { return _app; }
-        }
+        public AzureApp App { get; set; }
 
         public TokenRequest(AzureApp app, string resource, string signInUserName)
         {
-            _app = app;
+            App = app;
             Resource = resource;
             SignInUserName = signInUserName;
         }

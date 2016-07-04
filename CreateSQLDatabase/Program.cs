@@ -25,12 +25,10 @@ namespace CreateSQLDatabase
                     tokenRequests = new List<TokenRequest>
                     {
                         new TokenRequest {
-                        AppClientId="5efa8abc-13dc-4681-83f5-c6fde07116ac",
                         Resource="https://graph.microsoft.com",
                         SignInUserName="sp.tech@o365e3215.onmicrosoft.com"} ,
 
                         new TokenRequest {
-                        AppClientId="5efa8abc-13dc-4681-83f5-c6fde07116ac",
                         Resource="https://office365.office.com",
                         SignInUserName ="nanyu@o365e3w15.onmicrosoft.com"} ,
 

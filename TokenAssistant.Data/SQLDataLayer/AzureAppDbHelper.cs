@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using System.ServiceModel;
 
 namespace TokenAssistant.Data.SQLDataLayer
 {
-    class AzureAppDbHelper : IAzureAppDbContext
+    public class AzureAppDbHelper : IAzureAppDbContext
     {
         AzureAppSQLDbContext azureAppDbContext;
 
@@ -16,15 +17,15 @@ namespace TokenAssistant.Data.SQLDataLayer
             azureAppDbContext = new AzureAppSQLDbContext(sqlConnName);
         }
 
+        public AzureAppDbHelper(): this("AzureAppsConn")
+        {
+           
+        }
+
         public void AddApp(AzureApp app)
         {
             azureAppDbContext.AzureApps.Add(app);
             azureAppDbContext.SaveChanges();
-        }
-
-        public void ClearApps()
-        {
-            throw new NotImplementedException();
         }
 
         public void DeleteApp(string clientId)
@@ -54,6 +55,7 @@ namespace TokenAssistant.Data.SQLDataLayer
                 ((ServerAzureApp)targetApp).Secret = ((ServerAzureApp)app).Secret;
             }
 
+            targetApp.tokenRequests = app.tokenRequests;
             azureAppDbContext.SaveChanges();
         }
 
@@ -61,5 +63,6 @@ namespace TokenAssistant.Data.SQLDataLayer
         {
             azureAppDbContext.SaveChanges();
         }
+
     }
 }

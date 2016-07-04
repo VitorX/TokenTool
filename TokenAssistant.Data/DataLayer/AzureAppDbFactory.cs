@@ -7,7 +7,7 @@ using TokenAssistant.Data.SQLDataLayer;
 
 namespace TokenAssistant.Data
 {
-    public static class AzureAppDbFactory
+    static class AzureAppDbFactory
     {
         static string SQLConnName="AzureAppsConn";
 

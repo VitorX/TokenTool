@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TokenAssistant.Data;
+using TokenAssistant.DataService;
 
 namespace TokenAssistant
 {
@@ -16,7 +17,7 @@ namespace TokenAssistant
         public AppsAdd()
         {
             InitializeComponent();
-
+            
             comboType.DataSource = Enum.GetValues(typeof(AzureAppType)).Cast<AzureAppType>();
         }
 
@@ -43,8 +44,8 @@ namespace TokenAssistant
                 };
             }
 
-
-            AzureAppDbFactory.GetDbContext().AddApp(app);
+            AzureAppServiceClient dataServiceSlient = new AzureAppServiceClient();
+            dataServiceSlient.AddApp(app);
 
             MessageBox.Show("Add successfully!");
 

@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TokenAssistant.Data;
+using TokenAssistant.DataService;
 
 namespace TokenAssistant
 {
     public partial class AppsEdit : Form
     {
-        
-        IAzureAppDbContext appService = AzureAppDbFactory.GetDbContext();
+
+        AzureAppServiceClient dataService = new AzureAppServiceClient();
 
         public AppsEdit()
         {
@@ -25,7 +26,7 @@ namespace TokenAssistant
         {
             InitializeComponent();
 
-            AzureApp app = appService.GetApp(clientId);
+            AzureApp app = dataService.GetApp(clientId);
             comboType.DataSource = Enum.GetValues(typeof(AzureAppType)).Cast<AzureAppType>();
 
             txtAppName.Text = app.AppName;
@@ -62,7 +63,7 @@ namespace TokenAssistant
             app.ClientId = txtClientId.Text;
             app.AppName = txtAppName.Text;
             app.RedirectURL = txtRedirectURL.Text;
-            appService.SaveApp(app);
+            dataService.SaveApp(app);
 
             MessageBox.Show("Modify Successfuly!");
 
