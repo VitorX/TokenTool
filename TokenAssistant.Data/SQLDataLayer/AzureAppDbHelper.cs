@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using System.ServiceModel;
+using System.IO;
 
 namespace TokenAssistant.Data.SQLDataLayer
 {
@@ -15,6 +16,7 @@ namespace TokenAssistant.Data.SQLDataLayer
         public AzureAppDbHelper(string sqlConnName)
         {
             azureAppDbContext = new AzureAppSQLDbContext(sqlConnName);
+            //azureAppDbContext.Database.Log = message => File.AppendText(@"C:\users\v-fexue\desktop\log.txt").WriteLine(message);
         }
 
         public AzureAppDbHelper(): this("AzureAppsConn")
@@ -55,7 +57,18 @@ namespace TokenAssistant.Data.SQLDataLayer
                 ((ServerAzureApp)targetApp).Secret = ((ServerAzureApp)app).Secret;
             }
 
-            targetApp.tokenRequests = app.tokenRequests;
+            foreach (var req in app.tokenRequests)
+            {
+                var tagetRequest=targetApp.tokenRequests.FirstOrDefault(_req => _req.Resource == req.Resource && _req.SignInUserName == req.SignInUserName);
+                if (tagetRequest == null)
+                    targetApp.tokenRequests.Add(req);
+                else
+                {
+                    tagetRequest.AccessToken = req.AccessToken;
+                    tagetRequest.RefreshToken = req.RefreshToken;
+                }
+            }
+            
             azureAppDbContext.SaveChanges();
         }
 
@@ -63,6 +76,6 @@ namespace TokenAssistant.Data.SQLDataLayer
         {
             azureAppDbContext.SaveChanges();
         }
-
+    
     }
 }

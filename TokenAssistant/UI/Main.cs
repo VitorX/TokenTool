@@ -156,11 +156,11 @@ namespace TokenAssistant
                 var accessToken = response["access_token"].ToString();
                 var newRefreshToken = response["refresh_token"].ToString();
 
-                var tokenRequestIndex = app.tokenRequests.FindIndex(tokekRequest => (tokekRequest.Resource == lstResrouce.Text && tokekRequest.SignInUserName == lstUsers.Text));
-                if (tokenRequestIndex != -1)
+                var targetTokenRequest = app.tokenRequests.FirstOrDefault(tokekRequest => (tokekRequest.Resource == lstResrouce.Text && tokekRequest.SignInUserName == lstUsers.Text));
+                if (targetTokenRequest !=null)
                 {
-                    app.tokenRequests[tokenRequestIndex].AccessToken = accessToken;
-                    app.tokenRequests[tokenRequestIndex].RefreshToken = newRefreshToken;
+                    targetTokenRequest.AccessToken = accessToken;
+                    targetTokenRequest.RefreshToken = newRefreshToken;
                 }
                 else
                 {

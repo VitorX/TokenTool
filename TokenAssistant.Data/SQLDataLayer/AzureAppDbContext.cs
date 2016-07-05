@@ -11,6 +11,7 @@ namespace TokenAssistant.Data.SQLDataLayer
     public class AzureAppSQLDbContext : DbContext
     {
         public DbSet<AzureApp> AzureApps { get; set; }
+        public DbSet<TokenRequest> TokenRequests { get; set; }
 
         public AzureAppSQLDbContext(string connectionStringName)
       : base(connectionStringName)

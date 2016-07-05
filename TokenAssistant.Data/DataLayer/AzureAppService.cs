@@ -40,6 +40,7 @@ namespace TokenAssistant.Data.Data
             AzureAppDbFactory.GetDbContext().SaveApp(app);
         }
 
+
         [OperationContract]
         public void SaveChanges()
         {
