@@ -16,7 +16,6 @@ namespace TokenAssistant.Data.SQLDataLayer
         public AzureAppDbHelper(string sqlConnName)
         {
             azureAppDbContext = new AzureAppSQLDbContext(sqlConnName);
-            //azureAppDbContext.Database.Log = message => File.AppendText(@"C:\users\v-fexue\desktop\log.txt").WriteLine(message);
         }
 
         public AzureAppDbHelper(): this("AzureAppsConn")
