@@ -86,7 +86,6 @@ namespace TokenAssistant
             tokenRequestHelp.Send("https://login.microsoftonline.com");
 
             dataService.SaveApp(app);
-            dataService.SaveChanges();
 
             RefreshTokenControlUI();
             MessageBox.Show(tokenRequest.AccessToken);
@@ -180,7 +179,6 @@ namespace TokenAssistant
 
         }
 
-
         private void ShowFormBeside(Form parent, Form form)
         {
             form.StartPosition = FormStartPosition.Manual;
@@ -188,7 +186,6 @@ namespace TokenAssistant
             form.Top = parent.Top;
             form.ShowDialog();
         }
-
 
         private void lstUsers_KeyDown(object sender, KeyEventArgs e)
         {
@@ -205,6 +202,7 @@ namespace TokenAssistant
         {
             RefreshTokenControlUI();
         }
+
         private void listApps_SelectedIndexChanged(object sender, EventArgs e)
         {
             RefreshTokenControlUI();
