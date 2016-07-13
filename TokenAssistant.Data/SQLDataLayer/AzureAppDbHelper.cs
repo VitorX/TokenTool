@@ -60,11 +60,16 @@ namespace TokenAssistant.Data.SQLDataLayer
             {
                 var tagetRequest=targetApp.tokenRequests.FirstOrDefault(_req => _req.Resource == req.Resource && _req.SignInUserName == req.SignInUserName);
                 if (tagetRequest == null)
+                {
+                    req.App = null;
                     targetApp.tokenRequests.Add(req);
+                }
                 else
                 {
-                    tagetRequest.AccessToken = req.AccessToken;
-                    tagetRequest.RefreshToken = req.RefreshToken;
+                    if(!tagetRequest.AccessToken.Equals(req.AccessToken))
+                        tagetRequest.AccessToken = req.AccessToken;
+                    if (!tagetRequest.RefreshToken.Equals(req.RefreshToken))
+                        tagetRequest.RefreshToken = req.RefreshToken;
                 }
             }
             

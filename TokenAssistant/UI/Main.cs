@@ -81,10 +81,9 @@ namespace TokenAssistant
         {
             string clientId = ((AzureApp)listApps.SelectedItem).ClientId;
             AzureApp app = dataService.GetApp(clientId);
-            TokenRequest tokenRequest = new TokenRequest(app, lstResrouce.Text, lstUsers.Text);
+            TokenRequest tokenRequest = new TokenRequest(app,lstResrouce.Text, lstUsers.Text);
             TokenRequestHelp tokenRequestHelp = new TokenRequestHelp(tokenRequest);
             tokenRequestHelp.Send("https://login.microsoftonline.com");
-
             dataService.SaveApp(app);
 
             RefreshTokenControlUI();
@@ -163,7 +162,7 @@ namespace TokenAssistant
                 }
                 else
                 {
-                    var tokenRequest = new TokenRequest(app, lstResrouce.Text, lstUsers.Text);
+                    var tokenRequest = new TokenRequest(app,lstResrouce.Text, lstUsers.Text);
                     tokenRequest.AccessToken = accessToken;
                     tokenRequest.RefreshToken = newRefreshToken;
                     app.tokenRequests.Add(tokenRequest);
