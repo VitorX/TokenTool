@@ -43,7 +43,7 @@ namespace TokenAssistant.BusniessLayer
             {
                 int index = _tokenRequest.App.tokenRequests.IndexOf(_tokenRequest);
                 _tokenRequest.App.tokenRequests[index].AccessToken = _tokenRequest.AccessToken;
-                _tokenRequest.App.tokenRequests[index].RefreshToken = _tokenRequest.AccessToken;
+                _tokenRequest.App.tokenRequests[index].RefreshToken = _tokenRequest.RefreshToken;
             }
             else
                 _tokenRequest.App.tokenRequests.Add(_tokenRequest);
