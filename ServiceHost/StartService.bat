@@ -1,3 +1,1 @@
-::start %0\..\servicehost.exe
-
-start %cd%\servicehost.exe
+start %~p0\servicehost.exe
