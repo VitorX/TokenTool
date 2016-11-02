@@ -16,10 +16,13 @@ namespace TokenAssistant
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            //UI.user.UserList form = new UI.user.UserList();
+            //Application.Run(form);
+
             Main mainForm = new Main();
             mainForm.StartPosition = FormStartPosition.CenterScreen;
             Application.Run(mainForm);
-          
+
         }
     }
 }

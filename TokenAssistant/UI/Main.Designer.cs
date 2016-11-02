@@ -33,7 +33,7 @@
             this.btnAppToken = new System.Windows.Forms.Button();
             this.btnRefreshList = new System.Windows.Forms.Button();
             this.btnAddApp = new System.Windows.Forms.Button();
-            this.btnModifyApp = new System.Windows.Forms.Button();
+            this.btnUserManage = new System.Windows.Forms.Button();
             this.BtnDelete = new System.Windows.Forms.Button();
             this.txtAccessToken = new System.Windows.Forms.TextBox();
             this.txtRefreshToken = new System.Windows.Forms.TextBox();
@@ -95,15 +95,15 @@
             this.btnAddApp.UseVisualStyleBackColor = true;
             this.btnAddApp.Click += new System.EventHandler(this.btnAddApp_Click);
             // 
-            // btnModifyApp
+            // btnUserManage
             // 
-            this.btnModifyApp.Location = new System.Drawing.Point(295, 175);
-            this.btnModifyApp.Name = "btnModifyApp";
-            this.btnModifyApp.Size = new System.Drawing.Size(120, 23);
-            this.btnModifyApp.TabIndex = 3;
-            this.btnModifyApp.Text = "ModifyApp";
-            this.btnModifyApp.UseVisualStyleBackColor = true;
-            this.btnModifyApp.Click += new System.EventHandler(this.btnModifyApp_Click);
+            this.btnUserManage.Location = new System.Drawing.Point(295, 175);
+            this.btnUserManage.Name = "btnUserManage";
+            this.btnUserManage.Size = new System.Drawing.Size(120, 23);
+            this.btnUserManage.TabIndex = 3;
+            this.btnUserManage.Text = "UserManage";
+            this.btnUserManage.UseVisualStyleBackColor = true;
+            this.btnUserManage.Click += new System.EventHandler(this.btnUserManage_Click);
             // 
             // BtnDelete
             // 
@@ -215,7 +215,7 @@
             this.Controls.Add(this.txtRefreshToken);
             this.Controls.Add(this.txtAccessToken);
             this.Controls.Add(this.BtnDelete);
-            this.Controls.Add(this.btnModifyApp);
+            this.Controls.Add(this.btnUserManage);
             this.Controls.Add(this.btnAddApp);
             this.Controls.Add(this.btnRefreshList);
             this.Controls.Add(this.btnAppToken);
@@ -235,7 +235,7 @@
         private System.Windows.Forms.Button btnAppToken;
         private System.Windows.Forms.Button btnRefreshList;
         private System.Windows.Forms.Button btnAddApp;
-        private System.Windows.Forms.Button btnModifyApp;
+        private System.Windows.Forms.Button btnUserManage;
         private System.Windows.Forms.Button BtnDelete;
         private System.Windows.Forms.TextBox txtAccessToken;
         private System.Windows.Forms.TextBox txtRefreshToken;

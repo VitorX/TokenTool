@@ -26,7 +26,7 @@ namespace TokenAssistant
             BindListApps();
 
             lstResrouce.DataSource = Resources.Resrouces;
-            lstUsers.DataSource = Users.UserNames;
+            lstUsers.DataSource = Data.Users.UserNames;
 
             RefreshTokenControlUI();
         }
@@ -69,13 +69,13 @@ namespace TokenAssistant
             RefreshListApps();
         }
 
-        private void btnModifyApp_Click(object sender, EventArgs e)
-        {
-            string clientId = ((AzureApp)listApps.SelectedItem).ClientId;
-            AppsEdit formEdit = new AppsEdit(clientId);
-            ShowFormBeside(this, formEdit);
+        //private void btnModifyApp_Click(object sender, EventArgs e)
+        //{
+        //    string clientId = ((AzureApp)listApps.SelectedItem).ClientId;
+        //    AppsEdit formEdit = new AppsEdit(clientId);
+        //    ShowFormBeside(this, formEdit);
 
-        }
+        //}
 
         private void btnDelegateToken_Click(object sender, EventArgs e)
         {
@@ -235,6 +235,9 @@ namespace TokenAssistant
                 Clipboard.SetText(textbox.Text);
         }
 
+        private void btnUserManage_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

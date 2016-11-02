@@ -60,6 +60,7 @@
     <Compile Include="DataLayer\AzureAppService.cs" />
     <Compile Include="DataLayer\IAzureAppDbContext.cs" />
     <Compile Include="DataLayer\TokenRequest.cs" />
+    <Compile Include="DataLayer\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLDataLayer\AzureAppDbContext.cs" />
     <Compile Include="SQLDataLayer\AzureAppDbHelper.cs" />
