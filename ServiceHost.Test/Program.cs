@@ -12,7 +12,7 @@ namespace ServiceHost.Test
         static void Main(string[] args)
         {
 
-            AzureAppServiceClient azureAppDbHelperClient = new AzureAppServiceClient();
+            TokenAssistantServiceClient azureAppDbHelperClient = new TokenAssistantServiceClient();
 
             foreach (var app in azureAppDbHelperClient.GetAllApps())
             {

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using ServiceHost.Test.AzureApp.DataService;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 
@@ -16,7 +17,9 @@ namespace TokenAssistant.Data
         static Users()
         {
 
-            _userNames = ConfigurationManager.AppSettings["Users"].Split(new char[] { ';', ',' }).ToList<string>();
+            //_userNames = ConfigurationManager.AppSettings["Users"].Split(new char[] { ';', ',' }).ToList<string>();
+            TokenAssistantServiceClient dataService = new TokenAssistantServiceClient();
+            //dataService.
         }
     }
 }

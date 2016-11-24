@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using TokenAssistant.Data;
+using TokenAssistant.Data.DataLayer;
 
 namespace TokenAssistant.BusniessLayer
 {

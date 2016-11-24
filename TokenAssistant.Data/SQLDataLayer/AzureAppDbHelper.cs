@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using System.ServiceModel;
 using System.IO;
+using TokenAssistant.Data.DataLayer;
 
 namespace TokenAssistant.Data.SQLDataLayer
 {
-    public class AzureAppDbHelper : IAzureAppDbContext
+    public class AzureAppDbHelper : IAzureAppService,IUserService
     {
         AzureAppSQLDbContext azureAppDbContext;
 
@@ -80,6 +81,29 @@ namespace TokenAssistant.Data.SQLDataLayer
         {
             azureAppDbContext.SaveChanges();
         }
-    
+
+        public void AddUser(User user)
+        {
+            azureAppDbContext.Users.Add(user);
+            SaveChanges();
+        }
+
+        public User GetUser(string userName)
+        {
+            return azureAppDbContext.Users.FirstOrDefault(u=>u.UserName== userName);
+            
+        }
+
+        public List<User> GetAllUsers()
+        {
+            return azureAppDbContext.Users.ToList();
+        }
+
+        public void DeleteUser(User user)
+        {
+            var removingUser = azureAppDbContext.Users.FirstOrDefault(u => u.UserName == user.UserName);
+            azureAppDbContext.Users.Remove(removingUser);
+            SaveChanges();
+        }
     }
 }

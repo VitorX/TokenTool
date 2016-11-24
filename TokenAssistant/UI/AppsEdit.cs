@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TokenAssistant.Data;
+using TokenAssistant.Data.DataLayer;
 using TokenAssistant.DataService;
 
 namespace TokenAssistant
@@ -15,7 +16,7 @@ namespace TokenAssistant
     public partial class AppsEdit : Form
     {
 
-        AzureAppServiceClient dataService = new AzureAppServiceClient();
+        TokenAssistantServiceClient dataService = new TokenAssistantServiceClient();
 
         public AppsEdit()
         {

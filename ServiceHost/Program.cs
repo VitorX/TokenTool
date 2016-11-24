@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ServiceModel;
-using TokenAssistant.Data.Data;
+using TokenAssistant.Data.DataLayer;
 
 namespace ServiceHost1
 {
@@ -8,8 +8,10 @@ namespace ServiceHost1
     {
         static void Main(string[] args)
         {
-            using (ServiceHost host = new ServiceHost(typeof(AzureAppService)))
+            using (ServiceHost host = new ServiceHost(typeof(TokenAssistantService)))
             {
+                //WSHttpBinding binding = new WSHttpBinding();
+                //host.AddServiceEndpoint(typeof(UserService), binding, "http://localhost:8090/UserService");
                 host.Open();
 
                 Console.WriteLine("service started...");

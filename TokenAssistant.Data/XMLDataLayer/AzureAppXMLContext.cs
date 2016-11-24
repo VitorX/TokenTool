@@ -5,10 +5,11 @@ using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
+using TokenAssistant.Data.DataLayer;
 
 namespace TokenAssistant.Data
 {
-    public class AzureAppXMLContext: IAzureAppDbContext
+    public class AzureAppXMLContext: IAzureAppService
     {
         string filePath;
         List<AzureApp> apps;

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TokenAssistant.Data;
+using TokenAssistant.Data.DataLayer;
 using TokenAssistant.DataService;
 
 namespace TokenAssistant
@@ -44,7 +45,7 @@ namespace TokenAssistant
                 };
             }
 
-            AzureAppServiceClient dataServiceSlient = new AzureAppServiceClient();
+            TokenAssistantServiceClient dataServiceSlient = new TokenAssistantServiceClient();
             dataServiceSlient.AddApp(app);
 
             MessageBox.Show("Add successfully!");

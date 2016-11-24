@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 
-namespace TokenAssistant.Data
+namespace TokenAssistant.Data.DataLayer
 {
     [DataContract(IsReference = true)]
     public class TokenRequest

@@ -5,20 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 using TokenAssistant.Data.SQLDataLayer;
 
-namespace TokenAssistant.Data
+namespace TokenAssistant.Data.DataLayer
 {
     static class AzureAppDbFactory
     {
         static string SQLConnName="AzureAppsConn";
 
-        static IAzureAppDbContext _IAzureAppDbContext;
+        static IAzureAppService _IAzureAppDbContext;
 
         static AzureAppDbFactory()
         {
             _IAzureAppDbContext = GetDbContext();
         }
 
-        private static IAzureAppDbContext GetDbContext(AzureAppDbType dBType)
+        private static IAzureAppService GetDbContext(AzureAppDbType dBType)
         {
             switch (dBType)
             {
@@ -31,7 +31,7 @@ namespace TokenAssistant.Data
             }
         }
 
-        public static IAzureAppDbContext GetDbContext()
+        public static IAzureAppService GetDbContext()
         {
             //TODO
             //return GetDbContext(AzureAppDbType.XML);

@@ -31,7 +31,6 @@
             this.listBoxUsers = new System.Windows.Forms.ListBox();
             this.tbUser = new System.Windows.Forms.TextBox();
             this.btnDel = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -56,30 +55,23 @@
             // 
             // btnDel
             // 
-            this.btnDel.Location = new System.Drawing.Point(399, 191);
+            this.btnDel.Location = new System.Drawing.Point(237, 243);
             this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(75, 23);
+            this.btnDel.Size = new System.Drawing.Size(237, 33);
             this.btnDel.TabIndex = 5;
-            this.btnDel.Text = "Del";
+            this.btnDel.Text = "Delete";
             this.btnDel.UseVisualStyleBackColor = true;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(318, 191);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 6;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(237, 191);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(237, 33);
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // UserList
             // 
@@ -88,7 +80,6 @@
             this.ClientSize = new System.Drawing.Size(519, 415);
             this.Controls.Add(this.tbUser);
             this.Controls.Add(this.btnDel);
-            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.listBoxUsers);
             this.Name = "UserList";
@@ -103,7 +94,6 @@
         private System.Windows.Forms.ListBox listBoxUsers;
         private System.Windows.Forms.TextBox tbUser;
         private System.Windows.Forms.Button btnDel;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnAdd;
     }
 }

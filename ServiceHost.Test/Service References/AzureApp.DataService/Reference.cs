@@ -333,24 +333,24 @@ namespace ServiceHost.Test.AzureApp.DataService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class AzureAppServiceClient : System.ServiceModel.ClientBase<ServiceHost.Test.AzureApp.DataService.AzureAppService>, ServiceHost.Test.AzureApp.DataService.AzureAppService {
+    public partial class TokenAssistantServiceClient : System.ServiceModel.ClientBase<ServiceHost.Test.AzureApp.DataService.AzureAppService>, ServiceHost.Test.AzureApp.DataService.AzureAppService {
         
-        public AzureAppServiceClient() {
+        public TokenAssistantServiceClient() {
         }
         
-        public AzureAppServiceClient(string endpointConfigurationName) : 
+        public TokenAssistantServiceClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public AzureAppServiceClient(string endpointConfigurationName, string remoteAddress) : 
+        public TokenAssistantServiceClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public AzureAppServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public TokenAssistantServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public AzureAppServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public TokenAssistantServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         

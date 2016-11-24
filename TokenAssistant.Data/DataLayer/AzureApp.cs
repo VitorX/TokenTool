@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace TokenAssistant.Data
+namespace TokenAssistant.Data.DataLayer
 {
     //[XmlInclude(typeof(ClientAzureApp))]
     //[XmlInclude(typeof(ServerAzureApp))]

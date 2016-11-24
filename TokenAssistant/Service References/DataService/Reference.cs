@@ -12,84 +12,108 @@ namespace TokenAssistant.DataService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DataService.AzureAppService")]
-    public interface AzureAppService {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DataService.TokenAssistantService")]
+    public interface TokenAssistantService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AzureAppService/AddApp", ReplyAction="http://tempuri.org/AzureAppService/AddAppResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TokenAssistant.Data.ClientAzureApp))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TokenAssistant.Data.ServerAzureApp))]
-        void AddApp(TokenAssistant.Data.AzureApp app);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TokenAssistantService/AddApp", ReplyAction="http://tempuri.org/TokenAssistantService/AddAppResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TokenAssistant.Data.DataLayer.ClientAzureApp))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TokenAssistant.Data.DataLayer.ServerAzureApp))]
+        void AddApp(TokenAssistant.Data.DataLayer.AzureApp app);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AzureAppService/AddApp", ReplyAction="http://tempuri.org/AzureAppService/AddAppResponse")]
-        System.Threading.Tasks.Task AddAppAsync(TokenAssistant.Data.AzureApp app);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TokenAssistantService/AddApp", ReplyAction="http://tempuri.org/TokenAssistantService/AddAppResponse")]
+        System.Threading.Tasks.Task AddAppAsync(TokenAssistant.Data.DataLayer.AzureApp app);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AzureAppService/DeleteApp", ReplyAction="http://tempuri.org/AzureAppService/DeleteAppResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TokenAssistantService/DeleteApp", ReplyAction="http://tempuri.org/TokenAssistantService/DeleteAppResponse")]
         void DeleteApp(string clientId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AzureAppService/DeleteApp", ReplyAction="http://tempuri.org/AzureAppService/DeleteAppResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TokenAssistantService/DeleteApp", ReplyAction="http://tempuri.org/TokenAssistantService/DeleteAppResponse")]
         System.Threading.Tasks.Task DeleteAppAsync(string clientId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AzureAppService/GetAllApps", ReplyAction="http://tempuri.org/AzureAppService/GetAllAppsResponse")]
-        TokenAssistant.Data.AzureApp[] GetAllApps();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TokenAssistantService/GetAllApps", ReplyAction="http://tempuri.org/TokenAssistantService/GetAllAppsResponse")]
+        TokenAssistant.Data.DataLayer.AzureApp[] GetAllApps();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AzureAppService/GetAllApps", ReplyAction="http://tempuri.org/AzureAppService/GetAllAppsResponse")]
-        System.Threading.Tasks.Task<TokenAssistant.Data.AzureApp[]> GetAllAppsAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TokenAssistantService/GetAllApps", ReplyAction="http://tempuri.org/TokenAssistantService/GetAllAppsResponse")]
+        System.Threading.Tasks.Task<TokenAssistant.Data.DataLayer.AzureApp[]> GetAllAppsAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AzureAppService/GetApp", ReplyAction="http://tempuri.org/AzureAppService/GetAppResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TokenAssistant.Data.ClientAzureApp))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TokenAssistant.Data.ServerAzureApp))]
-        TokenAssistant.Data.AzureApp GetApp(string clientId);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TokenAssistantService/SaveApp", ReplyAction="http://tempuri.org/TokenAssistantService/SaveAppResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TokenAssistant.Data.DataLayer.ClientAzureApp))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TokenAssistant.Data.DataLayer.ServerAzureApp))]
+        void SaveApp(TokenAssistant.Data.DataLayer.AzureApp app);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AzureAppService/GetApp", ReplyAction="http://tempuri.org/AzureAppService/GetAppResponse")]
-        System.Threading.Tasks.Task<TokenAssistant.Data.AzureApp> GetAppAsync(string clientId);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TokenAssistantService/SaveApp", ReplyAction="http://tempuri.org/TokenAssistantService/SaveAppResponse")]
+        System.Threading.Tasks.Task SaveAppAsync(TokenAssistant.Data.DataLayer.AzureApp app);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AzureAppService/SaveApp", ReplyAction="http://tempuri.org/AzureAppService/SaveAppResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TokenAssistant.Data.ClientAzureApp))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TokenAssistant.Data.ServerAzureApp))]
-        void SaveApp(TokenAssistant.Data.AzureApp app);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AzureAppService/SaveApp", ReplyAction="http://tempuri.org/AzureAppService/SaveAppResponse")]
-        System.Threading.Tasks.Task SaveAppAsync(TokenAssistant.Data.AzureApp app);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AzureAppService/SaveChanges", ReplyAction="http://tempuri.org/AzureAppService/SaveChangesResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TokenAssistantService/SaveChanges", ReplyAction="http://tempuri.org/TokenAssistantService/SaveChangesResponse")]
         void SaveChanges();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AzureAppService/SaveChanges", ReplyAction="http://tempuri.org/AzureAppService/SaveChangesResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TokenAssistantService/SaveChanges", ReplyAction="http://tempuri.org/TokenAssistantService/SaveChangesResponse")]
         System.Threading.Tasks.Task SaveChangesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TokenAssistantService/GetApp", ReplyAction="http://tempuri.org/TokenAssistantService/GetAppResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TokenAssistant.Data.DataLayer.ClientAzureApp))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(TokenAssistant.Data.DataLayer.ServerAzureApp))]
+        TokenAssistant.Data.DataLayer.AzureApp GetApp(string clientId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TokenAssistantService/GetApp", ReplyAction="http://tempuri.org/TokenAssistantService/GetAppResponse")]
+        System.Threading.Tasks.Task<TokenAssistant.Data.DataLayer.AzureApp> GetAppAsync(string clientId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TokenAssistantService/AddUser", ReplyAction="http://tempuri.org/TokenAssistantService/AddUserResponse")]
+        void AddUser(TokenAssistant.Data.DataLayer.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TokenAssistantService/AddUser", ReplyAction="http://tempuri.org/TokenAssistantService/AddUserResponse")]
+        System.Threading.Tasks.Task AddUserAsync(TokenAssistant.Data.DataLayer.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TokenAssistantService/DeleteUser", ReplyAction="http://tempuri.org/TokenAssistantService/DeleteUserResponse")]
+        void DeleteUser(TokenAssistant.Data.DataLayer.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TokenAssistantService/DeleteUser", ReplyAction="http://tempuri.org/TokenAssistantService/DeleteUserResponse")]
+        System.Threading.Tasks.Task DeleteUserAsync(TokenAssistant.Data.DataLayer.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TokenAssistantService/GetAllUsers", ReplyAction="http://tempuri.org/TokenAssistantService/GetAllUsersResponse")]
+        TokenAssistant.Data.DataLayer.User[] GetAllUsers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TokenAssistantService/GetAllUsers", ReplyAction="http://tempuri.org/TokenAssistantService/GetAllUsersResponse")]
+        System.Threading.Tasks.Task<TokenAssistant.Data.DataLayer.User[]> GetAllUsersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TokenAssistantService/GetUser", ReplyAction="http://tempuri.org/TokenAssistantService/GetUserResponse")]
+        TokenAssistant.Data.DataLayer.User GetUser(string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TokenAssistantService/GetUser", ReplyAction="http://tempuri.org/TokenAssistantService/GetUserResponse")]
+        System.Threading.Tasks.Task<TokenAssistant.Data.DataLayer.User> GetUserAsync(string userName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface AzureAppServiceChannel : TokenAssistant.DataService.AzureAppService, System.ServiceModel.IClientChannel {
+    public interface TokenAssistantServiceChannel : TokenAssistant.DataService.TokenAssistantService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class AzureAppServiceClient : System.ServiceModel.ClientBase<TokenAssistant.DataService.AzureAppService>, TokenAssistant.DataService.AzureAppService {
+    public partial class TokenAssistantServiceClient : System.ServiceModel.ClientBase<TokenAssistant.DataService.TokenAssistantService>, TokenAssistant.DataService.TokenAssistantService {
         
-        public AzureAppServiceClient() {
+        public TokenAssistantServiceClient() {
         }
         
-        public AzureAppServiceClient(string endpointConfigurationName) : 
+        public TokenAssistantServiceClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public AzureAppServiceClient(string endpointConfigurationName, string remoteAddress) : 
+        public TokenAssistantServiceClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public AzureAppServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public TokenAssistantServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public AzureAppServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public TokenAssistantServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
-        public void AddApp(TokenAssistant.Data.AzureApp app) {
+        public void AddApp(TokenAssistant.Data.DataLayer.AzureApp app) {
             base.Channel.AddApp(app);
         }
         
-        public System.Threading.Tasks.Task AddAppAsync(TokenAssistant.Data.AzureApp app) {
+        public System.Threading.Tasks.Task AddAppAsync(TokenAssistant.Data.DataLayer.AzureApp app) {
             return base.Channel.AddAppAsync(app);
         }
         
@@ -101,27 +125,19 @@ namespace TokenAssistant.DataService {
             return base.Channel.DeleteAppAsync(clientId);
         }
         
-        public TokenAssistant.Data.AzureApp[] GetAllApps() {
+        public TokenAssistant.Data.DataLayer.AzureApp[] GetAllApps() {
             return base.Channel.GetAllApps();
         }
         
-        public System.Threading.Tasks.Task<TokenAssistant.Data.AzureApp[]> GetAllAppsAsync() {
+        public System.Threading.Tasks.Task<TokenAssistant.Data.DataLayer.AzureApp[]> GetAllAppsAsync() {
             return base.Channel.GetAllAppsAsync();
         }
         
-        public TokenAssistant.Data.AzureApp GetApp(string clientId) {
-            return base.Channel.GetApp(clientId);
-        }
-        
-        public System.Threading.Tasks.Task<TokenAssistant.Data.AzureApp> GetAppAsync(string clientId) {
-            return base.Channel.GetAppAsync(clientId);
-        }
-        
-        public void SaveApp(TokenAssistant.Data.AzureApp app) {
+        public void SaveApp(TokenAssistant.Data.DataLayer.AzureApp app) {
             base.Channel.SaveApp(app);
         }
         
-        public System.Threading.Tasks.Task SaveAppAsync(TokenAssistant.Data.AzureApp app) {
+        public System.Threading.Tasks.Task SaveAppAsync(TokenAssistant.Data.DataLayer.AzureApp app) {
             return base.Channel.SaveAppAsync(app);
         }
         
@@ -131,6 +147,46 @@ namespace TokenAssistant.DataService {
         
         public System.Threading.Tasks.Task SaveChangesAsync() {
             return base.Channel.SaveChangesAsync();
+        }
+        
+        public TokenAssistant.Data.DataLayer.AzureApp GetApp(string clientId) {
+            return base.Channel.GetApp(clientId);
+        }
+        
+        public System.Threading.Tasks.Task<TokenAssistant.Data.DataLayer.AzureApp> GetAppAsync(string clientId) {
+            return base.Channel.GetAppAsync(clientId);
+        }
+        
+        public void AddUser(TokenAssistant.Data.DataLayer.User user) {
+            base.Channel.AddUser(user);
+        }
+        
+        public System.Threading.Tasks.Task AddUserAsync(TokenAssistant.Data.DataLayer.User user) {
+            return base.Channel.AddUserAsync(user);
+        }
+        
+        public void DeleteUser(TokenAssistant.Data.DataLayer.User user) {
+            base.Channel.DeleteUser(user);
+        }
+        
+        public System.Threading.Tasks.Task DeleteUserAsync(TokenAssistant.Data.DataLayer.User user) {
+            return base.Channel.DeleteUserAsync(user);
+        }
+        
+        public TokenAssistant.Data.DataLayer.User[] GetAllUsers() {
+            return base.Channel.GetAllUsers();
+        }
+        
+        public System.Threading.Tasks.Task<TokenAssistant.Data.DataLayer.User[]> GetAllUsersAsync() {
+            return base.Channel.GetAllUsersAsync();
+        }
+        
+        public TokenAssistant.Data.DataLayer.User GetUser(string userName) {
+            return base.Channel.GetUser(userName);
+        }
+        
+        public System.Threading.Tasks.Task<TokenAssistant.Data.DataLayer.User> GetUserAsync(string userName) {
+            return base.Channel.GetUserAsync(userName);
         }
     }
 }

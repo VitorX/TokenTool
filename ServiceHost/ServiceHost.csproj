@@ -61,7 +61,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="StartService.bat">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>

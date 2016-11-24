@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TokenAssistant;
 using TokenAssistant.Data;
+using TokenAssistant.Data.DataLayer;
 using TokenAssistant.Data.SQLDataLayer;
 
 namespace CreateSQLDatabase

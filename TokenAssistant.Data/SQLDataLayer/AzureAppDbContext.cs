@@ -21,5 +21,9 @@ namespace TokenAssistant.Data.SQLDataLayer
         {
         }
 
+        public AzureAppSQLDbContext():base("name=AzureAppSQLDbContext")
+        {
+        }
+
     }
 }

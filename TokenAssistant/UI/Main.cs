@@ -12,12 +12,15 @@ using Newtonsoft.Json.Linq;
 using TokenAssistant.BusniessLayer;
 using TokenAssistant.Data;
 using TokenAssistant.DataService;
+using TokenAssistant.Data.DataLayer;
+using TokenAssistant.UI.user;
 
 namespace TokenAssistant
 {
     public partial class Main : Form
     {
-        AzureAppServiceClient dataService=new AzureAppServiceClient();
+        
+        TokenAssistantServiceClient dataService=new TokenAssistantServiceClient();
 
         public Main()
         {
@@ -26,14 +29,20 @@ namespace TokenAssistant
             BindListApps();
 
             lstResrouce.DataSource = Resources.Resrouces;
-            lstUsers.DataSource = Data.Users.UserNames;
+            BindUsers();
 
             RefreshTokenControlUI();
         }
 
-        private static AzureAppServiceClient getDbContext()
+        private void BindUsers()
         {
-            return new AzureAppServiceClient();
+            lstUsers.DataSource= dataService.GetAllUsers().ToArray<User>();
+            lstUsers.DisplayMember = "UserName"; 
+        }
+
+        private static TokenAssistantServiceClient getDbContext()
+        {
+            return new TokenAssistantServiceClient();
         }
 
         private void BtnDelete_Click(object sender, EventArgs e)
@@ -237,7 +246,8 @@ namespace TokenAssistant
 
         private void btnUserManage_Click(object sender, EventArgs e)
         {
-
+            new UserList().ShowDialog();
+            BindUsers();
         }
     }
 }
